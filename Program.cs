@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using ToDoListAPI.Models;
+
 namespace ToDoListAPI
 {
     public class Program
@@ -12,6 +15,7 @@ namespace ToDoListAPI
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+            builder.Services.AddDbContext<ToDoContext>(opt => opt.UseInMemoryDatabase("ToDoList"));
 
             var app = builder.Build();
 
